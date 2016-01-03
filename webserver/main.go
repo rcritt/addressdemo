@@ -21,7 +21,6 @@ func main() {
 	restAPIList := func(w http.ResponseWriter, r *http.Request) {
 
 	}
-
 	// REST-API: /list
 	router.HandleFunc("/api/list", restAPIList)
 
