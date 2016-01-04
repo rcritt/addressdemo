@@ -17,3 +17,10 @@ func init() {
 func Create(newAddressInfo orm.AddressInfo) {
 	db.Create(&newAddressInfo)
 }
+
+func List() []orm.AddressInfo {
+	var addresses []orm.AddressInfo
+	db.Find(&addresses)
+
+	return addresses
+}

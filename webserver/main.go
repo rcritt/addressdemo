@@ -24,6 +24,17 @@ func main() {
 	// REST APIs
 	// ****************
 	restAPIList := func(w http.ResponseWriter, r *http.Request) {
+		// Call the List API.
+		var addresses []orm.AddressInfo = apis.List()
+
+		// Convert to JSON.
+		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+		w.WriteHeader(http.StatusOK)
+
+		// Return JSON.
+		if err := json.NewEncoder(w).Encode(addresses); err != nil {
+			panic(err)
+		}
 
 	}
 	// REST-API: /list
